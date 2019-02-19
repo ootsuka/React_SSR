@@ -19,7 +19,6 @@ class home extends Component {
   render() {
     return(
       <div>
-        <Header />
         <div>{this.genList()}</div>
         <button onClick={() => alert('clicked')}>
           click
