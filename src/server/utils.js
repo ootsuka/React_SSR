@@ -4,10 +4,10 @@ import { StaticRouter, Route, matchPath } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { renderRoutes } from 'react-router-config'
 
-export const render = (req, store, Routes) => {
+export const render = (req, store, Routes, context) => {
     const content = renderToString((
       <Provider store={store}>
-        <StaticRouter location={req.path} context={{}}>
+        <StaticRouter location={req.path} context={context}>
           <div>
             {renderRoutes(Routes)}
           </div>
