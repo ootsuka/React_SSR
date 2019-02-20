@@ -12,12 +12,11 @@ const port = 3000
 app.use(express.static('public'))
 app.use('/api',proxy('http://47.95.113.63', {
     proxyReqPathResolver: function (req) {
-      console.log(req.url)
       return '/ssr/api' + req.url
     }
   }));
 app.get('*', (req, res) => {
-  const store = getStore()
+  const store = getStore(req)
 
   //load data based on route
   const promises = []
@@ -29,7 +28,13 @@ app.get('*', (req, res) => {
     }
   })
   Promise.all(promises).then(() => {
-    res.send(render(req, store, Routes))
+    const context = {}
+    const html = render(req, store, Routes, context)
+    console.log(context.NOT_FOUND)
+    if (context.NOT_FOUND) {
+      res.status(404)
+    }
+    res.send(html)
   })
 })
 

@@ -1,0 +1,2 @@
+export const GET_TRANS_SUCCESS = 'GET_TRANS_SUCCESS'
+export const GET_TRANS_FAIL = 'GET_TRANS_FAIL'
