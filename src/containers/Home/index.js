@@ -3,8 +3,11 @@ import { connect } from 'react-redux'
 
 import { getNewsList } from './store/actions'
 import Header from '../../components/Header'
+import styles from './style.css'
+import withStyle from '../../withStyle'
 
 class home extends Component {
+
   componentDidMount() {
     if (!this.props.list.length) {
       this.props.getList()
@@ -18,7 +21,7 @@ class home extends Component {
   }
   render() {
     return(
-      <div>
+      <div className={styles.test}>
         <div>{this.genList()}</div>
         <button onClick={() => alert('clicked')}>
           click
@@ -29,10 +32,6 @@ class home extends Component {
   }
 }
 
-home.loadData = (store) => {
-  //load data before server renders
-  return store.dispatch(getNewsList())
-}
 const mapStateToProps = state => ({
   name: state.home.name,
   list: state.home.newsList,
@@ -40,4 +39,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getList: () => dispatch(getNewsList())
 })
-export default connect(mapStateToProps, mapDispatchToProps)(home)
+const exportHome = connect(mapStateToProps, mapDispatchToProps)(withStyle(home, styles))
+
+exportHome.loadData = (store) => {
+  //load data before server renders
+  return store.dispatch(getNewsList())
+}
+
+export default exportHome

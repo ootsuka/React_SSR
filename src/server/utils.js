@@ -14,11 +14,13 @@ export const render = (req, store, Routes, context) => {
         </StaticRouter>
       </Provider>
     ))
+    const css = context.css.length ? context.css.join('\n') : ''
     return (
       `
         <html>
           <head>
             <title>ssr</title>
+            <style>${css}</style>
           </head>
           <body>
             <div id="root">${content}</div>
