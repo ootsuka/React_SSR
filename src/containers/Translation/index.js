@@ -3,8 +3,11 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import { getTranslation } from './store/actions'
+import styles from './style.css'
+import withStyle from '../../withStyle'
 
 class Translation extends Component {
+
   componentDidMount() {
     if (!this.props.list.length) {
       this.props.getList()
@@ -18,18 +21,13 @@ class Translation extends Component {
   }
   render() {
     return this.props.login ? (
-      <div>
+      <div className={styles.test}>
         <div>{this.genList()}</div>
       </div>
     ) : <Redirect to='/' />
   }
 }
 
-Translation.loadData = (store) => {
-  //load data before server renders
-  console.log('here')
-  return store.dispatch(getTranslation())
-}
 const mapStateToProps = state => ({
   list: state.translation.translation,
   login: state.header.login
@@ -37,4 +35,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getList: () => dispatch(getTranslation())
 })
-export default connect(mapStateToProps, mapDispatchToProps)(Translation)
+const exportTranslation = connect(mapStateToProps, mapDispatchToProps)(withStyle(Translation, styles))
+
+exportTranslation.loadData = (store) => {
+  //load data before server renders
+  return store.dispatch(getTranslation())
+}
+
+export default exportTranslation

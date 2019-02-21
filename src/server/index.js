@@ -24,17 +24,24 @@ app.get('*', (req, res) => {
   const matchedRoutes = matchRoutes(Routes, req.path)
   matchedRoutes.forEach(item => {
     if (item.route.loadData) {
-      promises.push(item.route.loadData(store))
+      const promise = new Promise((resolve, reject) => {
+        item.route.loadData(store).then(resolve).catch(resolve)
+      })
+      promises.push(promise)
     }
   })
   Promise.all(promises).then(() => {
     const context = {}
+    context.css = []
     const html = render(req, store, Routes, context)
-    console.log(context.NOT_FOUND)
-    if (context.NOT_FOUND) {
+    if (context.action === 'REPLACE') {
+      res.redirect(301, context.url)
+    } else if (context.NOT_FOUND) {
       res.status(404)
+      res.send(html)
+    } else {
+      res.send(html)
     }
-    res.send(html)
   })
 })
 
