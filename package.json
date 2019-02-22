@@ -7,7 +7,11 @@
     "dev": "npm-run-all --parallel dev:**",
     "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\"",
     "dev:build:server": "webpack --config webpack.server.js --watch",
-    "dev:build:client": "webpack --config webpack.client.js --watch"
+    "dev:build:client": "webpack --config webpack.client.js --watch",
+    "prod": "npm-run-all --parallel prod:**",
+    "prod:start": "node \"./build/bundle.js\"",
+    "prod:build:server": "webpack --config webpack.server.prod.js",
+    "prod:build:client": "webpack --config webpack.client.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +31,7 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.4",
     "webpack-cli": "^3.2.3",
     "webpack-merge": "^4.2.1",
