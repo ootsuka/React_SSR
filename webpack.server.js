@@ -2,6 +2,7 @@ const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 const merge = require('webpack-merge')
 const config = require('./webpack.base.js')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const serverConfig = {
   target: 'node',
@@ -9,6 +10,7 @@ const serverConfig = {
   entry: './src/server/index.js',
   output: {
     filename: 'bundle.js',
+    chunkFilename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'build')
   },
   externals: [nodeExternals()],

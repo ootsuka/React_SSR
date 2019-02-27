@@ -12,7 +12,8 @@ const serverConfig = {
   mode: 'production',
   entry: './src/server/index.js',
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[contenthash].js',
+    chunkFilename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'build')
   },
   externals: [nodeExternals()],
