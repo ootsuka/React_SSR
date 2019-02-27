@@ -2,12 +2,12 @@ import express from 'express'
 import { render } from './utils'
 import { matchRoutes } from 'react-router-config'
 import proxy from 'express-http-proxy'
-
+import Loadable from 'react-loadable'
 import { getStore } from '../store'
 import Routes from '../Routes'
 
 const app = express()
-const port = 3000
+const port = 8080
 
 app.use(express.static('public'))
 app.use('/api',proxy('http://47.95.113.63', {
@@ -44,5 +44,8 @@ app.get('*', (req, res) => {
     }
   })
 })
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+Loadable.preloadAll().then(() => {
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}!`);
+  });
+});

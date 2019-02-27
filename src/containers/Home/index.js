@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { getNewsList } from './store/actions'
-import Header from '../../components/Header'
 import styles from './style.css'
 import withStyle from '../../withStyle'
+import SideBar from '../SideBar/index'
 
 class home extends Component {
-
   componentDidMount() {
     if (!this.props.list.length) {
       this.props.getList()
     }
   }
+
   genList() {
     return (
       this.props.list.map((item) => <div key={item.id}>{item.title}</div>)
@@ -23,9 +23,10 @@ class home extends Component {
     return(
       <div className={styles.test}>
         <div>{this.genList()}</div>
-        <button onClick={() => alert('clicked')}>
+        <button onClick={() => this.handleClick()}>
           click
         </button>
+        <SideBar />
       </div>
 
     )
