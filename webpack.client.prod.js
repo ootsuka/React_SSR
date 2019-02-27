@@ -10,7 +10,8 @@ const clientConfig = {
   mode: 'production',
   entry: './src/client/index.js',
   output: {
-    filename: 'index.js',
+    filename: '[name].[contenthash].js',
+    chunkFilename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'public')
   },
   module: {

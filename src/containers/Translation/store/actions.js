@@ -5,7 +5,6 @@ export const getTranslation = () => {
   return (dispatch, getState, axiosInstance) => {
     return axiosInstance.get('/api/translations.json')
               .then((res) => {
-                console.log(res)
                 if (res.data.success) {
                   let list = res.data.data
                   dispatch({

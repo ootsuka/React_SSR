@@ -1,13 +1,18 @@
 const path = require('path')
 const merge = require('webpack-merge')
 const config = require('./webpack.base.js')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { ReactLoadablePlugin } = require('react-loadable/webpack')
+
 
 const clientConfig = {
   mode: 'development',
   entry: './src/client/index.js',
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'public')
+    chunkFilename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, 'public'),
+    publicPath: '/public/'
   },
   module: {
     rules: [
@@ -23,6 +28,11 @@ const clientConfig = {
         }]
       }
     ]
-  }
+  },
+  plugins: [
+    new ReactLoadablePlugin({
+      filename:  path.resolve(__dirname, 'public', 'react-loadable.json')
+    })
+  ],
 }
 module.exports = merge(config, clientConfig)
