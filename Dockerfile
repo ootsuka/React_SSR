@@ -1,20 +1,27 @@
-FROM node:8
+# build =====================
+FROM node:latest as build
 
-# Create app directory
-WORKDIR /usr/src/app
+WORKDIR /React_SSR
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
 COPY package*.json ./
 
 RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 
-# Bundle app source
 COPY . .
+
+RUN npm run prod:build:server
+
+RUN npm run prod:build:client
+
+# run =====================
+FROM node:latest as run
+
+WORKDIR /React_SSR
+
+COPY --from=build /React_SSR .
 
 EXPOSE 8080
 
-CMD [ "npm", "run", "prod" ]
+CMD [ "npm", "run", "prod:start"]
