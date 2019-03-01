@@ -11,6 +11,7 @@ This is a project to demonstrate the basic of how to do server side rendering wi
 * Handle CSS in SSR
 * Use React Loadable to do code splitting
 * Build 404 page and 301 redirect
+* Dockerized for production
 
 ## Initial Setup
 ```
@@ -31,4 +32,4 @@ Client Part is just a standard react application with some components. ```Sideba
 * Add test for the project.
 * Conditionally load pollyfills
 * React Helmet for dynamic manipulation of the document <head />
-* Docker-ized for production
+
