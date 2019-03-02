@@ -8,7 +8,7 @@ This is a project to demonstrate the basic of how to do server side rendering wi
 * Build Routing in SSR
 * Use Redux with SSR
 * Make Node server fetch data with proxy
-* Handle CSS in SSR
+* Create HOC to style components
 * Use React Loadable to do code splitting
 * Build 404 page and 301 redirect
 * Dockerized for production
