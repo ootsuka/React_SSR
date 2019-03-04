@@ -31,5 +31,3 @@ Client Part is just a standard react application with some components. ```Sideba
 ## RoadMap
 * Add test for the project.
 * Conditionally load pollyfills
-* React Helmet for dynamic manipulation of the document <head />
-
