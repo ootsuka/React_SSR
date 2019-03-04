@@ -16,7 +16,11 @@ class Translation extends Component {
   }
   genList() {
     return (
+<<<<<<< HEAD
       this.props.list.map((item) => <div calssName={styles.item} key={item.id}>{item.title}</div>)
+=======
+      this.props.list.map((item) => <div key={item.id}>{item.title}</div>)
+>>>>>>> 94de39019765a073dbe61268fef0610f46016f9c
     )
 
   }
@@ -27,7 +31,11 @@ class Translation extends Component {
           <title>translation list</title>
           <meta name="description" content="this is a translation list page" />
         </Helmet>
+<<<<<<< HEAD
         <div className={styles.container}>
+=======
+        <div className={styles.test}>
+>>>>>>> 94de39019765a073dbe61268fef0610f46016f9c
           <div>{this.genList()}</div>
         </div>
       </Fragment>

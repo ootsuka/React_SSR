@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container {
   margin-top: 20px;
   margin-left: 20px;
@@ -6,4 +7,8 @@
   line-height: 34px;
   font-size: 16px;
   color: #666;
+=======
+.test {
+  background: yellow
+>>>>>>> 94de39019765a073dbe61268fef0610f46016f9c
 }
