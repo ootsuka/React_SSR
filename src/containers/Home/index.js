@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { Helmet } from 'react-helmet'
 
 import { getNewsList } from './store/actions'
 import styles from './style.css'
@@ -21,14 +22,19 @@ class home extends Component {
   }
   render() {
     return(
-      <div className={styles.test}>
-        <div>{this.genList()}</div>
-        <button onClick={() => this.handleClick()}>
-          click
-        </button>
-        <SideBar />
-      </div>
-
+      <Fragment>
+        <Helmet>
+          <title>news feed</title>
+          <meta name="description" content="this is a news list page" />
+        </Helmet>
+        <div className={styles.test}>
+          <div>{this.genList()}</div>
+          <button onClick={() => this.handleClick()}>
+            click
+          </button>
+          <SideBar />
+        </div>
+      </Fragment>
     )
   }
 }
