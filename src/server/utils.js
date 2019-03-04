@@ -1,6 +1,7 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { StaticRouter, Route, matchPath } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import { Provider } from 'react-redux'
 import { renderRoutes } from 'react-router-config'
 import Loadable from 'react-loadable'
@@ -20,14 +21,18 @@ export const render = (req, store, Routes, context) => {
           </Loadable.Capture>
       </Provider>
     ))
+
+    const helmet = Helmet.renderStatic();
+
     let bundles = getBundles(stats, modules);
-    console.log(bundles)
+
     const css = context.css.length ? context.css.join('\n') : ''
     return (
       `
         <html>
           <head>
-            <title>ssr</title>
+            ${helmet.title.toString()}
+            ${helmet.meta.toString()}
             <style>${css}</style>
           </head>
           <body>
