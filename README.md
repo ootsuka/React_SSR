@@ -1,6 +1,6 @@
 # React_SSR
 # React Server Side Rendering Boilerplate
-This is a project to demonstrate the basic of how to do server side rendering with react. Server Side Rendering will be referred as SSR
+This project demonstrates the basics of how to implement Server Side Rendering (SSR) using React.
 
 ## What's included?
 * Server Side rendering React
