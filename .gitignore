@@ -1,5 +1,5 @@
 node_modules/
 build/
 public/
-stats_clinet.json
+stats_client.json
 stats_server.json

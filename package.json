@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm-run-all --parallel dev:**",
+    "dev": "npm-run-all dev:build:client dev:build:server dev:start",
+    "dev:build:server": "webpack --profile --json > stats_client.json --config webpack.server.js",
+    "dev:build:client": "webpack --profile --json > stats_server.json --config webpack.client.js",
     "dev:start": "nodemon --watch build --exec \"node build/bundle.js\"",
-    "dev:build:server": "webpack --profile --json > stats_client.json --config webpack.server.js --watch",
-    "dev:build:client": "webpack --profile --json > stats_server.json --config webpack.client.js --watch",
     "prod": "npm-run-all --parallel prod:**",
-    "prod:start": "node \"./build/bundle.js\"",
     "prod:build:server": "webpack --config webpack.server.prod.js",
-    "prod:build:client": "webpack --config webpack.client.prod.js"
+    "prod:build:client": "webpack --config webpack.client.prod.js",
+    "prod:start": "node \"./build/bundle.js\"",
+    "docker": "npm-run-all docker:build docker:start",
+    "docker:build": "docker build --rm -t react_ssr .",
+    "docker:start": "docker run --rm -it -p 3000:8080 react_ssr"
   },
   "author": "",
   "license": "ISC",

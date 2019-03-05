@@ -24,6 +24,7 @@ npm run dev
 ## Production
 ```
 npm run prod
+npm run docker
 ```
 ## General Architecture
 The src code has two parts, server and client code. Server is a express application whose purpose is to handle user request, fetch data, generate content and return the response to the user. ```Server/util``` renders react component to String and inject the html string into response. Fetching data on the server side is done with a static loadData method to the highest class component rendered for a route, the method returns a promise which will be resolved with other promises in ```Server/index.js``` to guarantee the store gets all the data before rendering. loadData is added to ```Routes.js``` as a property for a route object so it can be accessed with ```{ matchedRoutes }```
