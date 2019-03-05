@@ -5,11 +5,8 @@ import { Helmet } from 'react-helmet'
 import { getNewsList } from './store/actions'
 import styles from './style.css'
 import withStyle from '../../withStyle'
-<<<<<<< HEAD
 import Footer from '../Footer/index'
-=======
-import SideBar from '../SideBar/index'
->>>>>>> 94de39019765a073dbe61268fef0610f46016f9c
+
 
 class home extends Component {
   componentDidMount() {
@@ -20,13 +17,8 @@ class home extends Component {
 
   genList() {
     return (
-<<<<<<< HEAD
       this.props.list.map((item) => <div className={styles.item} key={item.id}>{item.title}</div>)
-=======
-      this.props.list.map((item) => <div key={item.id}>{item.title}</div>)
->>>>>>> 94de39019765a073dbe61268fef0610f46016f9c
     )
-
   }
   render() {
     return(
@@ -35,18 +27,9 @@ class home extends Component {
           <title>news feed</title>
           <meta name="description" content="this is a news list page" />
         </Helmet>
-<<<<<<< HEAD
         <div className={styles.container}>
           <div>{this.genList()}</div>
           <Footer />
-=======
-        <div className={styles.test}>
-          <div>{this.genList()}</div>
-          <button onClick={() => this.handleClick()}>
-            click
-          </button>
-          <SideBar />
->>>>>>> 94de39019765a073dbe61268fef0610f46016f9c
         </div>
       </Fragment>
     )
