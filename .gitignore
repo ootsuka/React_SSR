@@ -3,3 +3,4 @@ build/
 public/
 stats_client.json
 stats_server.json
+_snapshots_/

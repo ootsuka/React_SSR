@@ -14,14 +14,14 @@
     "prod:start": "node \"./build/bundle.js\"",
     "docker": "npm-run-all docker:build docker:start",
     "docker:build": "docker build --rm -t react_ssr .",
-    "docker:start": "docker run --rm -it -p 3000:8080 react_ssr"
+    "docker:start": "docker run --rm -it -p 3000:8080 react_ssr",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
-    "@babel/preset-react": "^7.0.0",
     "@babel/preset-stage-0": "^7.0.0",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
@@ -43,9 +43,15 @@
   },
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.3.1",
     "clean-webpack-plugin": "^1.0.1",
     "css-loader": "^2.1.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "enzyme-to-json": "^3.3.5",
     "isomorphic-style-loader": "^5.0.1",
+    "jest": "^24.3.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.5"
   }
