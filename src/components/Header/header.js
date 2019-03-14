@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleLogin, handleLogout } from './store/actions'
 import styles from './style.css'
-import withStyle from '../../withStyle'
 
-export class header extends Component {
+export default class header extends Component {
   render() {
     const { login, handleLogin, handleLogout } = this.props
     return(
@@ -20,14 +19,3 @@ export class header extends Component {
     )
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    login: state.header.login
-  }
-}
-const mapDispatchToProps = (dispatch) => ({
-  handleLogin: () => dispatch(handleLogin()),
-  handleLogout: () => dispatch(handleLogout())
-})
-export default connect(mapStateToProps, mapDispatchToProps)(withStyle(header, styles))

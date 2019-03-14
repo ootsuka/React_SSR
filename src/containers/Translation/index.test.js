@@ -1,17 +1,19 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
-import Home from './index.js'
+import Translation from './index.js'
 
-describe('Home', () => {
+describe('Translation', () => {
   it('should render correctly in "debug" mode', () => {
-    const component = shallow(<Home debug />)
+    const component = shallow(<Translation />)
+
+    console.log(component)
 
     expect(component).toMatchSnapshot()
   })
   it('should render news list with given strings', () => {
     const strings = ['string1', 'string2']
-    const component = shallow(<Home list={strings}/>)
+    const component = shallow(<Translation list={strings}/>)
     expect(component).toMatchSnapshot()
   })
 })

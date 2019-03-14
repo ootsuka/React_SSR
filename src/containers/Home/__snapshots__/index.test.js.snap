@@ -5,3 +5,9 @@ exports[`Home should render correctly in "debug" mode 1`] = `
   <Component />
 </ContextConsumer>
 `;
+
+exports[`Home should render news list with given strings 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
