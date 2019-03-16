@@ -8,7 +8,7 @@ import withStyle from '../../withStyle'
 import Footer from '../Footer/index'
 
 
-class home extends Component {
+export class Home extends Component {
   componentDidMount() {
     if (!this.props.list.length) {
       this.props.getList()
@@ -16,6 +16,7 @@ class home extends Component {
   }
 
   genList() {
+    console.log('generating')
     return (
       this.props.list.map((item) => <div className={styles.item} key={item.id}>{item.title}</div>)
     )
@@ -43,7 +44,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getList: () => dispatch(getNewsList())
 })
-const exportHome = connect(mapStateToProps, mapDispatchToProps)(withStyle(home, styles))
+const exportHome = connect(mapStateToProps, mapDispatchToProps)(withStyle(Home, styles))
 
 exportHome.loadData = (store) => {
   //load data before server renders

@@ -1,13 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home should render correctly in "debug" mode 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
-
-exports[`Home should render news list with given strings 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+exports[`Home should render itself and subcomponents 1`] = `
+<Fragment>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      news feed
+    </title>
+    <meta
+      content="this is a news list page"
+      name="description"
+    />
+  </HelmetWrapper>
+  <div>
+    <div>
+      <div
+        key="1"
+      >
+        test1
+      </div>
+      <div
+        key="2"
+      >
+        test2
+      </div>
+      <div
+        key="3"
+      >
+        test3
+      </div>
+    </div>
+    <NewComponent />
+  </div>
+</Fragment>
 `;

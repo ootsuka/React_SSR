@@ -5,7 +5,7 @@ import { handleLogin, handleLogout } from './store/actions'
 import styles from './style.css'
 import withStyle from '../../withStyle'
 
-export class header extends Component {
+export class Header extends Component {
   render() {
     const { login, handleLogin, handleLogout } = this.props
     return(
@@ -30,4 +30,4 @@ const mapDispatchToProps = (dispatch) => ({
   handleLogin: () => dispatch(handleLogin()),
   handleLogout: () => dispatch(handleLogout())
 })
-export default connect(mapStateToProps, mapDispatchToProps)(withStyle(header, styles))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyle(Header, styles))

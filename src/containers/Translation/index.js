@@ -7,7 +7,7 @@ import { getTranslation } from './store/actions'
 import styles from './style.css'
 import withStyle from '../../withStyle'
 
-class Translation extends Component {
+export class Translation extends Component {
 
   componentDidMount() {
     if (!this.props.list.length) {
